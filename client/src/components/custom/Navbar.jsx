@@ -35,7 +35,7 @@ const Navbar = () => {
                 : "/resourceclade_dark.png"
             }`}
             alt="logo"
-            className="ml-10 mt-1 md:ml-1 w-30 h-10 md:w-44 md:h-14"
+            className="ml-10 mt-0.5 md:ml-1 w-30 h-10 md:w-44 md:h-14"
           />
         </Link>
       </div>

@@ -26,7 +26,7 @@ const MobileNavbar = () => {
       <button
         className={`${
           theme === "light" ? "text-gray-700" : "text-gray-100"
-        } cursor-pointer p-2 fixed top-5 left-0.5`}
+        } cursor-pointer p-2 fixed top-4 left-0.5`}
         onClick={toggleOpen}
       >
         {!isOpen && <MdMenu size={24} />}
