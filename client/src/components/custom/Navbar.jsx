@@ -28,6 +28,7 @@ const Navbar = () => {
         <MobileNavbar />
         <Link to="/">
           <img
+            loading="lazy"
             src={`${
               theme === "light"
                 ? "/resourceclade.png"
