@@ -24,6 +24,7 @@ const Contact = () => {
         formData
       );
       if (data.success) {
+        toast.success("Your message has been successfully sent.");
         setSubmitted(true);
       } else {
         toast.error("Something went wrong. Please try again.");
@@ -36,7 +37,7 @@ const Contact = () => {
     }
   };
 
-  if (submitted) navigate("contact/thanks");
+  if (submitted) navigate("/contact/thanks");
 
   return (
     <motion.div
