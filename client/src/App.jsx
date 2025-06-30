@@ -14,6 +14,7 @@ import ThanksMessage from "./components/custom/ThanksMessage";
 import { Toaster } from "react-hot-toast";
 import NotFound from "./components/ui/NotFound";
 import useNetworkStatus from "./components/custom/useNetworkStatus";
+import ScrollToTop from "./components/custom/ScrollToTop";
 const App = () => {
   const { theme } = useTheme();
   const { isOnline, connectionSpeed } = useNetworkStatus();
@@ -26,6 +27,7 @@ const App = () => {
             : "text-gray-300 bg-zinc-900"
         } transition-all`}
       >
+        <ScrollToTop />
         <Navbar />
         <Toaster
           position="top-right"
