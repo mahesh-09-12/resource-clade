@@ -170,7 +170,7 @@ const Resources = () => {
                       {item.domain}
                     </h2>
                     <div className="w-full flex justify-between items-center">
-                      <p className="flex items-center justify-center gap-1 text-lg">
+                      <p className="flex items-center justify-center gap-1 text-sm md:text-lg">
                         <IoStar className="text-amber-600" />
                         {item.rating} ({item.totalRatings})
                       </p>
