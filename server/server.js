@@ -1,3 +1,9 @@
+process.on("uncaughtException", (err) => {
+  console.error("💥 Uncaught Exception! Shutting down...");
+  console.error(err);
+  process.exit(1);
+});
+
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
@@ -14,10 +20,6 @@ app.use(cors());
 app.use(express.json());
 const PORT = process.env.PORT || 3000;
 
-app.get("/", (req, res) => {
-  res.send("Hello world!");
-});
-
 app.use("/api/resources", ResourceRoutes);
 app.use("/api/favorites", FavoriteRoutes);
 app.use("/api/rating", RatingRoutes);
@@ -30,4 +32,13 @@ mongoose
 
 app.listen(PORT, () => {
   console.log(`Server is running...`);
+});
+
+process.on("unhandledRejection", (err) => {
+  console.error("🛑 Unhandled Promise Rejection! Shutting down...");
+  console.error(err);
+
+  server.close(() => {
+    process.exit(1);
+  });
 });
