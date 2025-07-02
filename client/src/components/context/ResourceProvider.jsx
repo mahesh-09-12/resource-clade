@@ -17,6 +17,14 @@ export const ResourceProvider = ({ children }) => {
     getFavorites();
   }, []);
 
+  useEffect(() => {
+    setFavorites([]);
+
+    if (user && user.id) {
+      getFavorites();
+    }
+  }, [user]);
+
   const getResources = async () => {
     setLoading(true);
     try {
