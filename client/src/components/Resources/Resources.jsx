@@ -172,7 +172,7 @@ const Resources = () => {
                     <div className="w-full flex justify-between items-center">
                       <p className="flex items-center justify-center gap-1 text-sm md:text-[1rem]">
                         <IoStar className="text-amber-600" />
-                        {item.rating} ({item.totalRatings})
+                        {item.rating.toFixed(1)} ({item.totalRatings})
                       </p>
                       <button
                         onClick={(e) => handleToggleFavorite(e, item._id)}
