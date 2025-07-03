@@ -8,7 +8,7 @@ const About = () => {
       transition={{ duration: 0.5, ease: "easeInOut" }}
       className="w-full grid grid-cols-1 lg:grid-cols-2 gap-5 items-center justify-center"
     >
-      <div className="max-w-full h-full lg:max-w-3/4">
+      <div className="max-w-full lg:max-w-3/4">
         <img src="/about.png" alt="about_img" className="w-[72rem] h-full" />
       </div>
       <div className="flex flex-col gap-5 items-center justify-center mb-5 mx-1 p-10">

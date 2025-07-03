@@ -104,7 +104,7 @@ const Contact = () => {
           </Button>
         </form>
       </div>
-      <div className="w-full h-full">
+      <div className="w-full h-full flex items-center justify-center">
         <img src="/contact.png" alt="contact" className="w-[40rem]" />
       </div>
     </motion.div>
