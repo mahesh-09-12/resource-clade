@@ -22,7 +22,7 @@ const App = () => {
   return (
     <ResourceProvider>
       <div
-        className={`w-full min-h-screen ${
+        className={`w-full min-h-screen flex flex-col ${
           theme === "light"
             ? "text-gray-800 bg-gray-100"
             : "text-gray-300 bg-zinc-900"
@@ -63,8 +63,8 @@ const App = () => {
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer />
       </div>
-      {/* <Footer /> */}
     </ResourceProvider>
   );
 };

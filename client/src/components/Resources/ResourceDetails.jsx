@@ -22,7 +22,7 @@ const ResourceDetails = () => {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center gap-7 p-6 w-full md:max-w-[70%] mx-auto aspect-video">
+    <div className="flex flex-col justify-center items-center gap-7 p-6 w-full md:max-w-[70%] mx-auto">
       {loading ? (
         <div className="w-[90%] h-[200px] sm:h-[300px] md:h-[400px] lg:h-[480px] transition-all duration-300 ease-in-out rounded-lg bg-slate-300 animate-pulse"></div>
       ) : (
@@ -42,7 +42,7 @@ const ResourceDetails = () => {
               isLoaded ? "bg-slate-300 animate-pulse" : ""
             }`}
           ></iframe>
-          <p className="p-2 md:pl-10 text-sm md:text-[1rem]">
+          <p className="p-5 md:pl-10 text-sm md:text-[1rem]">
             {selected?.description}
           </p>
           <h3 className="font-semibold text-xl md:text-2xl">
