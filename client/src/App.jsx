@@ -22,7 +22,7 @@ const App = () => {
   return (
     <ResourceProvider>
       <div
-        className={`w-full min-h-screen flex flex-col ${
+        className={`w-full min-h-screen ${
           theme === "light"
             ? "text-gray-800 bg-gray-100"
             : "text-gray-300 bg-zinc-900"
