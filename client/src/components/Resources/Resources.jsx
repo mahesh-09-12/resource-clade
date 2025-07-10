@@ -19,6 +19,15 @@ const Resources = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedTag, setSelectedTag] = useState("all");
   const [filteredData, setFilteredData] = useState(resources);
+  const [page, setPage] = useState(1);
+
+  const itemsPerPage = 9;
+  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+
+  const paginationData = filteredData.slice(
+    (page - 1) * itemsPerPage,
+    page * itemsPerPage
+  );
 
   const handleTagChange = (tag) => {
     setSelectedTag(tag.toLowerCase());
@@ -41,6 +50,7 @@ const Resources = () => {
     }
 
     setFilteredData(filtered);
+    setPage(1);
   }, [selectedTag, searchQuery, resources, favorites]);
 
   const handleToggleFavorite = async (e, resourceId) => {
@@ -69,6 +79,17 @@ const Resources = () => {
       }
     } catch (error) {
       toast.error(error.response?.data?.message || error.message);
+    }
+  };
+
+  const handleChagePage = (selectedPage) => {
+    if (
+      selectedPage >= 1 &&
+      selectedPage <= totalPages &&
+      selectedPage !== page
+    ) {
+      setPage(selectedPage);
+      window.scrollTo(0, 0);
     }
   };
 
@@ -143,12 +164,12 @@ const Resources = () => {
               );
             })}
           </>
-        ) : filteredData.length === 0 ? (
+        ) : paginationData.length === 0 ? (
           <div className="text-gray-500 text-lg col-span-full text-center">
             🔍 No resources found matching your search.
           </div>
         ) : (
-          filteredData.map((item) => (
+          paginationData.slice(0, 9).map((item) => (
             <RevealOnScroll key={item._id}>
               <div
                 className={`h-full flex flex-col justify-center items-center gap-4 border border-gray-700 rounded-lg p-4 cursor-pointer bg-gray-500/20 hover:shadow-xl ${
@@ -193,6 +214,41 @@ const Resources = () => {
               </div>
             </RevealOnScroll>
           ))
+        )}
+      </div>
+      <div className="flex items-center justify-center w-full mt-4">
+        {totalPages > 1 && (
+          <div className="flex items-center justify-center gap-4">
+            <button
+              disabled={page == 1}
+              className={`bg-blue-500 ${
+                page > 1 && "hover:bg-blue-600"
+              } rounded-lg px-2.5 py-1.5 md:px-3 md:py-2 cursor-pointer transition-all`}
+              onClick={() => handleChagePage(page - 1)}
+            >
+              Prev
+            </button>
+            {[...Array(totalPages)].map((_, i) => (
+              <button
+                key={i}
+                className={`rounded-lg px-3.5 py-1.5 md:px-4 md:py-2 border border-gray-300 cursor-pointer ${
+                  theme === "light" ? "hover:bg-gray-400" : "hover:bg-gray-300"
+                } hover:bg-gray-400 ${i + 1 == page ? "bg-gray-500" : ""}`}
+                onClick={() => handleChagePage(i + 1)}
+              >
+                {i + 1}
+              </button>
+            ))}
+            <button
+              disabled={page == totalPages}
+              className={`bg-blue-500 ${
+                page < totalPages && "hover:bg-blue-600"
+              } rounded-lg px-2.5 py-1.5 md:px-3 md:py-2 cursor-pointer transition-all`}
+              onClick={() => handleChagePage(page + 1)}
+            >
+              Next
+            </button>
+          </div>
         )}
       </div>
     </div>
