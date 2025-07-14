@@ -23,26 +23,29 @@ router.patch("/:resourceId", async (req, res) => {
     if (!rating)
       return res.status(400).json({ error: "Rating must be between 1 to 5." });
 
-    const alreadyRated = await Ratings.findOne({ userId, resourceId });
-    if (alreadyRated)
-      return res
-        .status(400)
-        .json({ message: "User already rated this domain." });
-
     const domain = await Resources.findById(resourceId);
 
     if (!domain) return res.json({ message: "Domain not found." });
 
-    domain.ratingSum += rating;
-    domain.totalRatings += 1;
+    let existingRating = await Ratings.findOne({ userId, resourceId });
+    const isNew = !existingRating;
+    if (existingRating) {
+      domain.ratingSum -= existingRating.rating;
+      existingRating.rating = rating;
+      domain.ratingSum += rating;
+    } else {
+      existingRating = new Ratings({ userId, resourceId, rating });
+      domain.ratingSum += rating;
+      domain.totalRatings += 1;
+    }
+
     domain.rating = domain.ratingSum / domain.totalRatings;
     await domain.save();
 
-    const ratingRecord = new Ratings({ userId, resourceId, rating });
-    await ratingRecord.save();
+    await existingRating.save();
 
     res.status(200).json({
-      message: "Rated successfully",
+      message: isNew ? "Rated successfully" : "Rating updated",
       averageRating: domain.rating.toFixed(2),
       totalRatings: domain.totalRatings,
     });

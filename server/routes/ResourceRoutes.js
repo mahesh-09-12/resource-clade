@@ -25,4 +25,17 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.patch("/:resourceId", async (req, res) => {
+  const { resourceId } = req.params;
+  try {
+    const resource = await Resources.findById(resourceId);
+    resource.projects.push(...project);
+    await resource.save();
+    res.json(project);
+  } catch (error) {
+    console.log(error.message);
+    res.json({ error: error.message });
+  }
+});
+
 export default router;

@@ -17,6 +17,17 @@ const ResourceSchema = new mongoose.Schema({
   },
 });
 
+const ProjectsSchema = new mongoose.Schema({
+  type: String,
+  name: String,
+  description: String,
+  url: {
+    type: String,
+    match: /^https?:\/\/.+/,
+  },
+  default: [],
+});
+
 const DomainSchema = new mongoose.Schema(
   {
     domain: String,
@@ -39,6 +50,7 @@ const DomainSchema = new mongoose.Schema(
     intro_video: IntroVideoSchema,
     description: String,
     resources: [ResourceSchema],
+    projects: [ProjectsSchema],
   },
   { timestamps: true }
 );
