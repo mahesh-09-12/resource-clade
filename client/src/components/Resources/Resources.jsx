@@ -130,11 +130,11 @@ const Resources = () => {
         </div>
       </div>
 
-      <div className="w-full md:w-2/3 flex flex-wrap justify-start items-center gap-4">
+      <div className="w-full md:w-2/3 flex flex-wrap justify-start items-center gap-2 gap-y-3.5 md:gap-4">
         {tagItems?.map((item, index) => {
           const isSelected = selectedTag === item.toLowerCase();
           const baseClass =
-            "transition-colors duration-300 ease-in-out transition-all flex justify-center items-center border border-gray-500 rounded-lg p-2 w-24 h-8 cursor-pointer text-sm md:text-[1rem]";
+            "transition-colors duration-300 ease-in-out transition-all flex justify-center items-center border border-gray-500 rounded-lg p-2 w-20 h-7 md:w-24 md:h-8 cursor-pointer text-sm md:text-[1rem]";
           const themeHover =
             theme === "light" ? "hover:bg-gray-300" : "hover:bg-gray-800";
           const activeBg = isSelected
