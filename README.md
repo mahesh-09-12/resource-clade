@@ -57,6 +57,10 @@ Client (client/.env):
 
 VITE_GOOGLE_CLIENT_ID=your_google_client_id
 
+GOOGLE_CLIENT_ID=your_google_client_id
+
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+
 VITE_API_URL=http://localhost:5000
 
 Server (server/.env):
@@ -66,10 +70,6 @@ env
 PORT=5000
 
 MONGO_URI=your_mongodb_connection_uri
-
-GOOGLE_CLIENT_ID=your_google_client_id
-
-GOOGLE_CLIENT_SECRET=your_google_client_secret
 
 JWT_SECRET=your_jwt_secret
 
