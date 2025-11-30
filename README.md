@@ -17,7 +17,7 @@ Tested successfully with **300+ real users simultaneously**.
 
 ## ✨ Features
 - 📚 **Curated Resources:** Filter and explore categorized resources in Web Dev, AI, and Data Science.  
-- 🔐 **Google Authentication:** Secure login using OAuth 2.0 for smooth access.  
+- 🔐 **Google Authentication:** Secure login using OAuth 3.0 for smooth access.  
 - ⚙️ **Full-Stack CRUD APIs:** Built with Node.js, Express.js, and MongoDB (Mongoose).  
 - 🎞️ **Modern Animations:** Powered by Framer Motion for smooth transitions.  
 - 📈 **Performance Tested:** Handled 300+ real concurrent users, maintaining stable performance.  
@@ -30,7 +30,7 @@ Tested successfully with **300+ real users simultaneously**.
 | Frontend | React.js, Tailwind CSS, Framer Motion |
 | Backend | Node.js, Express.js |
 | Database | MongoDB (Mongoose) |
-| Auth | Google OAuth 2.0 |
+| Auth | Google OAuth 3.0 |
 | Deployment | Vercel / Render |
 
 ---
