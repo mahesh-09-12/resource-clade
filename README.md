@@ -39,7 +39,7 @@ Tested successfully with **300+ real users simultaneously**.
 
 ### 1️⃣ Clone the repository
 
-git clone https://github.com/mahesh-09-12/resource-clade
+```git clone https://github.com/mahesh-09-12/resource-clade```
 
 cd resource-clade
 
